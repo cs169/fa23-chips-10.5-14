@@ -1,0 +1,24 @@
+project:
+  name: 'CS169-fa23-14'
+  owner: 'fa23'
+  teamId: '14'
+  identities: {}
+  notifications:
+    email: 'bentref@gmx.com'
+  members:
+    member1:
+      name: 'Vijay'
+      surname: 'Tatavarthi' 
+      githubUsername: ' tatavarthiv'
+    member2:
+      name: 'Ben'
+      surname: 'Trefry' 
+      githubUsername: 'bentref'
+    member3:
+      name: 'Lucas'
+      surname: 'Lovric' 
+      githubUsername: 'Lucas-Lovric'
+    member4:
+      name: 'Phillip'
+      surname: 'Lovric' 
+      githubUsername: 'PhillipLovric'
