@@ -9,5 +9,5 @@ Background: reps have been added to database
     
 
 Scenario: Show the correct columns
-    When I go to the first representative's page
+    When I show the first representative
     Then I should see the following columns: Name, Address, Party
