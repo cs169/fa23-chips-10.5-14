@@ -8,6 +8,8 @@ Background: reps have been added to database
 
     
 
-Scenario: Show the correct columns
+Scenario: Show the correct columns and info
     When I show the first representative
     Then I should see the following columns: Name, Address, Party
+    Then I should see "Johnny"
+    Then I should see "Libertarian"
