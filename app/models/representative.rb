@@ -17,8 +17,10 @@ class Representative < ApplicationRecord
         end
       end
 
-      rep = Representative.create!({ name: official.name, ocdid: ocdid_temp,
-          title: title_temp })
+      rep = Representative.find_or_initialize_by(name: official.name)
+      rep.title = title_temp
+      rep.ocdid = ocdid_temp
+      rep.save!
       reps.push(rep)
     end
 
