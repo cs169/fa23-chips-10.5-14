@@ -4,7 +4,7 @@ class Representative < ApplicationRecord
   has_many :news_items, dependent: :delete_all
 
   def self.parse_address(addrs)
-    unless addrs.nil?
+    unless addrs.nil? || addrs.length.zero?
       addr = addrs[0]
       return "#{addr.line1} #{addr.city} #{addr.state} #{addr.zip}"
     end
