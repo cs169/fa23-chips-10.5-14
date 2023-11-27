@@ -15,7 +15,10 @@ describe Representative do
     end
     let(:officials) do
       instance_double(Google::Apis::CivicinfoV2::Official,
-                      name: 'Gavin Newsom')
+                      name:      'Gavin Newsom',
+                      address:   nil,
+                      party:     'Democrat',
+                      photo_url: '')
     end
 
     let(:rep_info) do
