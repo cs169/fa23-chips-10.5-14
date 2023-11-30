@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 2023_11_30_063419) do
     t.datetime "updated_at", null: false
     t.string "ocdid"
     t.string "title"
+    t.string "party"
+    t.string "photo_url"
+    t.string "address"
   end
 
   create_table "states", force: :cascade do |t|
