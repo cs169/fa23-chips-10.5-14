@@ -4,6 +4,6 @@ require 'rails_helper'
 
 describe AjaxController do
   it 'does something' do
-    skip 'Temporarily skip'
+    skip 'Temporarily skipped'
   end
 end

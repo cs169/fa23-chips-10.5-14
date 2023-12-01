@@ -6,11 +6,14 @@ require 'rspec/rails'
 
 RSpec.describe NewsItem, type: :model do
   describe 'Constants' do
+    let(:expected_issues) do
+      ['Free Speech', 'Immigration', 'Terrorism', 'Social Security and Medicare',
+       'Abortion', 'Student Loans', 'Gun Control', 'Unemployment', 'Climate Change',
+       'Homelessness', 'Racism', 'Tax Reform', 'Net Neutrality', 'Religious Freedom',
+       'Border Security', 'Minimum Wage', 'Equal Pay']
+    end
+
     it 'has a list of valid ISSUES' do
-      expected_issues = ['Free Speech', 'Immigration', 'Terrorism', 'Social Security and Medicare',
-                         'Abortion', 'Student Loans', 'Gun Control', 'Unemployment', 'Climate Change',
-                         'Homelessness', 'Racism', 'Tax Reform', 'Net Neutrality', 'Religious Freedom',
-                         'Border Security', 'Minimum Wage', 'Equal Pay']
       expect(NewsItem::ISSUES).to match_array(expected_issues)
     end
   end
