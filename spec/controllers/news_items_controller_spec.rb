@@ -18,7 +18,8 @@ describe NewsItemsController do
       title:             'Example News Title',
       link:              'http://example.com/news',
       description:       'Example description of the news item.',
-      representative_id: representative.id
+      representative_id: representative.id,
+      issue:             'Gun Control'
     )
   end
 
