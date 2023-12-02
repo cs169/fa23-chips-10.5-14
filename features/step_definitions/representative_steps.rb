@@ -11,6 +11,11 @@ When /I show the first representative/ do
   visit representative_path(first_rep)
 end
 
+When /I show the first news/ do
+  first_rep = Representative.find_by(name: 'Johnny')
+  visit representative_news_items_path(first_rep)
+end
+
 Then /I should see the following columns: (.*)$/ do |columns_list|
   columns_list = columns_list.split(', ')
   columns_list.each do |c|
