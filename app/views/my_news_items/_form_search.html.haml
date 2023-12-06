@@ -1,15 +1,15 @@
 = form_with url: url_for(controller: 'my_news_items', action: 'new', only_path: true), html: { method: 'get' } do |f|
 
     .form-group.row
-        .col-sm-2
+        .col-sm-3
             = label :news_item, :representative_id, class: 'col-form-label'
-        .col-sm-10
-            = select :news_item, :representative_id, representatives_list, { include_blank: true },
+        .col-sm-9
+            = select :news_item, :representative_id, representatives_list, { selected: params[:representative_id], include_blank: true },
             class: 'form-control'
     .form-group.row
-        .col-sm-2
+        .col-sm-3
             = f.label :issue, 'Issue', class: 'col-form-label'
-        .col-sm-10
+        .col-sm-9
             = f.select :issue, NewsItem::ISSUES.map { |issue| [issue, issue] }, { include_blank: true },
             class: 'form-control'
     .actions
