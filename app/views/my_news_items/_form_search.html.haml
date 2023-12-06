@@ -1,10 +1,9 @@
 = form_with url: url_for(controller: 'my_news_items', action: 'new', only_path: true), html: { method: 'get' } do |f|
-
     .form-group.row
         .col-sm-3
             = label :news_item, :representative_id, class: 'col-form-label'
         .col-sm-9
-            = select :news_item, :representative_id, representatives_list, { selected: params[:representative_id], include_blank: true },
+            = select_tag 'representative_id', options_for_select(representatives_list, params[:representative_id]), include_blank: true, 
             class: 'form-control'
     .form-group.row
         .col-sm-3
