@@ -11,12 +11,32 @@
             = label :news_item, :representative_id, class: 'col-form-label'
         .col-sm-9
             .form-control-plaintext
-            = params[:representative_id]
+            = @representative.name
     .form-group.row
         .col-sm-3
             = f.label :issue, 'Issue', class: 'col-form-label'
         .col-sm-9
             .form-control-plaintext
             = params[:issue]
+    .form-group.row
+        .col-md-8
+            .table-responsive-md
+                %table.table.table-striped.table-hover#events
+                    %caption Table of Representatives
+                    %thead.thead-dark
+                        %tr
+                            %th Select
+                            %th Title
+                            %th Description
+                            %th Link                    
+                    %tbody
+                        - @articles["articles"].each do |article|
+                            %tr
+                                %td
+                                    = radio_button_tag 'selected_article_id', article["url"]
+                                %td= article["title"]
+                                %td= article["description"]
+                                %td                      
+                                    %a{ href: article["url"], target: "_blank" }= article["url"]
     .actions
         = f.submit 'Save', class: 'btn btn-primary'
