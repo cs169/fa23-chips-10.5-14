@@ -7,6 +7,16 @@ class MyNewsItemsController < SessionController
 
   def new
     @news_item = NewsItem.new
+    @representative = Representative.find(params[:representative_id])
+    api_key = Rails.application.credentials[:GOOGLE_NEWS_API_KEY]
+    query = "#{@representative.name}+#{params[:issue]}"
+    url = "https://newsapi.org/v2/everything?q=#{query}&pageSize=5&apiKey=#{api_key}"
+    uri = URI.parse(url)
+    raise ArgumentError, 'Invalid URL scheme' unless %w[http https].include?(uri.scheme)
+
+    response = Net::HTTP.get_response(uri)
+    article_serialized = response.body
+    @articles = JSON.parse(article_serialized)
   end
 
   def edit; end
