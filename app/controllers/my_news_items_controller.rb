@@ -68,6 +68,6 @@ class MyNewsItemsController < SessionController
 
   # Only allow a list of trusted parameters through.
   def news_item_params
-    params.require(:news_item).permit(:news, :title, :description, :link, :representative_id, :issue)
+    params.require(:news_item).permit(:news, :title, :description, :link, :representative_id, :issue, ratings_attributes: [:value])
   end
 end

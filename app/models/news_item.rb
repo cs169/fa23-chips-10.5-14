@@ -3,6 +3,7 @@
 class NewsItem < ApplicationRecord
   belongs_to :representative
   has_many :ratings, dependent: :delete_all
+  accepts_nested_attributes_for :ratings
 
   ISSUES = ['Free Speech', 'Immigration', 'Terrorism',
             'Social Security and Medicare', 'Abortion', 'Student Loans',

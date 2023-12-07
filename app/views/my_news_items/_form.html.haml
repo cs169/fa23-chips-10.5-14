@@ -38,5 +38,11 @@
                                 %td= article['description']
                                 %td
                                     %a{ href: article['url'], target: '_blank' }= article['url']
+    = f.fields_for :ratings, news_item.ratings.build do |rating_fields|
+        .form-group.row
+            .col-sm-3
+                = rating_fields.label :value, 'Rating', class: 'col-form-label'
+            .col-sm-9
+                = rating_fields.select :value, options_for_select(1..10), {}, { class: 'form-control' }
     .actions
         = f.submit 'Save', class: 'btn btn-primary'
