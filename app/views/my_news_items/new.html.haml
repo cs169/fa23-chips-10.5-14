@@ -6,4 +6,5 @@
         = render 'form', news_item: @news_item,
         form_url: representative_new_my_news_item_path(@representative),
         form_method: :post,
-        representatives_list: @representatives_list
+        representative: @representative,
+        articles: @articles

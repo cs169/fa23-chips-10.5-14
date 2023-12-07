@@ -11,7 +11,7 @@
             = label :news_item, :representative_id, class: 'col-form-label'
         .col-sm-9
             .form-control-plaintext
-            = @representative.name
+            = representative.name
     .form-group.row
         .col-sm-3
             = f.label :issue, 'Issue', class: 'col-form-label'
@@ -30,7 +30,7 @@
                             %th Description
                             %th Link
                     %tbody
-                        - @articles['articles'].each do |article|
+                        - articles['articles'].each do |article|
                             %tr
                                 %td
                                     = radio_button_tag 'selected_article_id', article['url']
