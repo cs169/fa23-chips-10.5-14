@@ -3,8 +3,8 @@
         .col-sm-3
             = label :news_item, :representative_id, class: 'col-form-label'
         .col-sm-9
-            = select_tag 'representative_id', options_for_select(representatives_list, params[:representative_id]), include_blank: true, 
-            class: 'form-control'
+            = select_tag 'representative_id', options_for_select(representatives_list, params[:representative_id]),
+            include_blank: true, class: 'form-control'
     .form-group.row
         .col-sm-3
             = f.label :issue, 'Issue', class: 'col-form-label'

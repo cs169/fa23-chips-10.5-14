@@ -28,15 +28,15 @@
                             %th Select
                             %th Title
                             %th Description
-                            %th Link                    
+                            %th Link
                     %tbody
-                        - @articles["articles"].each do |article|
+                        - @articles['articles'].each do |article|
                             %tr
                                 %td
-                                    = radio_button_tag 'selected_article_id', article["url"]
-                                %td= article["title"]
-                                %td= article["description"]
-                                %td                      
-                                    %a{ href: article["url"], target: "_blank" }= article["url"]
+                                    = radio_button_tag 'selected_article_id', article['url']
+                                %td= article['title']
+                                %td= article['description']
+                                %td
+                                    %a{ href: article['url'], target: '_blank' }= article['url']
     .actions
         = f.submit 'Save', class: 'btn btn-primary'
