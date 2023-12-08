@@ -1,4 +1,6 @@
 = form_for news_item, url: form_url, html: { method: form_method } do |f|
+    - representative_id ||= nil
+    - issue ||= nil
     - if news_item.errors.any?
         .alert.alert-danger
             %h2
@@ -13,7 +15,7 @@
             .form-control-plaintext
             = representative.name
 
-    = f.hidden_field :representative_id, value: @representative.id
+    = f.hidden_field :representative_id, value: representative_id
 
     .form-group.row
         .col-sm-3
@@ -22,7 +24,7 @@
             .form-control-plaintext
             = params[:issue]
 
-    = f.hidden_field :issue, value: params[:issue]
+    = f.hidden_field :issue, value: issue
 
     .form-group.row
         .col-md-8
