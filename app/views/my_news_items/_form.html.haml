@@ -12,12 +12,18 @@
         .col-sm-9
             .form-control-plaintext
             = representative.name
+
+    = f.hidden_field :representative_id, value: @representative.id
+
     .form-group.row
         .col-sm-3
             = f.label :issue, 'Issue', class: 'col-form-label'
         .col-sm-9
             .form-control-plaintext
             = params[:issue]
+
+    = f.hidden_field :issue, value: params[:issue]
+
     .form-group.row
         .col-md-8
             .table-responsive-md
@@ -33,7 +39,8 @@
                         - articles['articles'].each do |article|
                             %tr
                                 %td
-                                    = radio_button_tag 'selected_article_id', article['url']
+                                    - details = [article['title'], article['description'], article['url']].join('|||')
+                                    = radio_button_tag 'selected_article', details
                                 %td= article['title']
                                 %td= article['description']
                                 %td
