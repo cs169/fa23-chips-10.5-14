@@ -1,4 +1,6 @@
 = form_for news_item, url: form_url, html: { method: form_method } do |f|
+    - representative_id ||= nil
+    - issue ||= nil
     - if news_item.errors.any?
         .alert.alert-danger
             %h2
@@ -12,12 +14,18 @@
         .col-sm-9
             .form-control-plaintext
             = representative.name
+
+    = f.hidden_field :representative_id, value: representative_id
+
     .form-group.row
         .col-sm-3
             = f.label :issue, 'Issue', class: 'col-form-label'
         .col-sm-9
             .form-control-plaintext
             = params[:issue]
+
+    = f.hidden_field :issue, value: issue
+
     .form-group.row
         .col-md-8
             .table-responsive-md
@@ -33,10 +41,17 @@
                         - articles['articles'].each do |article|
                             %tr
                                 %td
-                                    = radio_button_tag 'selected_article_id', article['url']
+                                    - details = [article['title'], article['description'], article['url']].join('|||')
+                                    = radio_button_tag 'selected_article', details
                                 %td= article['title']
                                 %td= article['description']
                                 %td
                                     %a{ href: article['url'], target: '_blank' }= article['url']
+    = f.fields_for :ratings, news_item.ratings.build do |rating_fields|
+        .form-group.row
+            .col-sm-3
+                = rating_fields.label :value, 'Rating', class: 'col-form-label'
+            .col-sm-9
+                = rating_fields.select :value, options_for_select(1..10), {}, { class: 'form-control' }
     .actions
         = f.submit 'Save', class: 'btn btn-primary'
